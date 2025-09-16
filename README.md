@@ -2,16 +2,10 @@
 
 API for web scraping and testing web applications.
 
-## Container Building
-```
-# Build the Docker image
-docker build -t test-ops-ia .
-
-# Run in detached mode (background)
-docker run -d -p 8000:8000 --name test-ops-ia-container test-ops-ia
-
-# Run in foreground
-docker run -p 8000:8000 test-ops-ia
+## Container management
+```bash
+chmod +x docker.sh
+./ docker.sh --help
 ```
 
 ## Using the API
@@ -21,7 +15,7 @@ docker run -p 8000:8000 test-ops-ia
 - Test endpoints interactively:
   - `POST /scrape/` → scrape a website  
     Request body example:
-    ```
+    ```json
     {
       "url": "https://example.com/",
       "timeout": 10
@@ -35,7 +29,7 @@ docker run -p 8000:8000 test-ops-ia
 1. **Scrape a website (POST /scrape/)**  
    URL: `http://localhost:8000/scrape/`  
    Body (JSON):
-   ```
+   ```json
    {
      "url": "https://example.com",
      "wait_for": "div.content",
