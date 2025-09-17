@@ -2,6 +2,9 @@
 
 API for web scraping and testing web applications.
 
+# Idea
+"Can web scraping and AI be turned into a tool to partially automate UAT?"
+
 ## Container management
 ```bash
 chmod +x docker.sh

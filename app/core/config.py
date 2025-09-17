@@ -3,6 +3,7 @@ from pydantic import Field
 from pathlib import Path
 from functools import cached_property
 
+
 class Settings(BaseSettings):
     app_name: str = "Selenium Scraper API"
     debug: bool = Field(default=False, env="DEBUG")
@@ -23,5 +24,6 @@ class Settings(BaseSettings):
     
     class Config:
         env_file = ".env"
+
 
 settings = Settings()

@@ -26,7 +26,7 @@ app.include_router(scraper_router)
 @app.get("/")
 async def root():
     return {
-        "message": "Welcome to FastAPI Selenium Scraper",
+        "message": "Welcome to Selenium Scraper API",
         "docs": "/docs",
         "status": "Service ready - ChromeDriver will initialize on first request"
     }
@@ -34,4 +34,6 @@ async def root():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app,
+                host="0.0.0.0",
+                port=8000)

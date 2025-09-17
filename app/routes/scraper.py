@@ -1,4 +1,5 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import (APIRouter,
+                     HTTPException)
 from app.services.scraper_service import scraper
 from app.models import (ScrapeRequest,
                         ScrapeResponse,

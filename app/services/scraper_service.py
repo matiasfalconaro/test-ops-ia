@@ -18,7 +18,9 @@ class SeleniumScraper:
     def __init__(self, headless: bool = True):
         self.headless = headless
         self.driver = None
-        self.screenshot_dir = os.path.join(os.path.dirname(__file__), '..', 'screenshots')
+        self.screenshot_dir = os.path.join(os.path.dirname(__file__),
+                                           '..',
+                                           'screenshots')
         os.makedirs(self.screenshot_dir, exist_ok=True)
     
 
@@ -52,7 +54,11 @@ class SeleniumScraper:
         return self.driver
     
 
-    def scrape_website(self, url: str, wait_for: Optional[str] = None, timeout: int = 10, save_screenshot: bool = False) -> Dict[str, Any]:
+    def scrape_website(self,
+                       url: str,
+                       wait_for: Optional[str] = None,
+                       timeout: int = 10,
+                       save_screenshot: bool = False) -> Dict[str, Any]:
         """Scrape a website and return page content"""
         if not self.driver:
             self.init_driver()
@@ -138,7 +144,9 @@ class SeleniumScraper:
             return ""
     
 
-    def save_screenshot_to_file(self, base64_data: str, url: str) -> str:
+    def save_screenshot_to_file(self,
+                                base64_data: str,
+                                url: str) -> str:
         """
         Save base64 screenshot to PNG file
         Returns the file path if successful, None otherwise
@@ -171,7 +179,8 @@ class SeleniumScraper:
             return None
     
 
-    def extract_with_rules(self, rules: List[Dict[str, Any]]) -> Dict[str, Any]:
+    def extract_with_rules(self,
+                           rules: List[Dict[str, Any]]) -> Dict[str, Any]:
         """Extract data based on custom rules"""
         if not self.driver:
             return {}
@@ -204,9 +213,14 @@ class SeleniumScraper:
         }
 
 
-    def custom_scrape(self, url: str, rules: List[Dict[str, Any]], wait_for: Optional[str] = None, 
-                    timeout: int = 10, screenshot: bool = False, full_page: bool = False,
-                    save_screenshot: bool = False) -> Dict[str, Any]:
+    def custom_scrape(self,
+                      url: str,
+                      rules: List[Dict[str, Any]],
+                      wait_for: Optional[str] = None, 
+                      timeout: int = 10,
+                      screenshot: bool = False,
+                      full_page: bool = False,
+                      save_screenshot: bool = False) -> Dict[str, Any]:
         """Perform custom scraping with specific rules"""
         if not self.driver:
             self.init_driver()

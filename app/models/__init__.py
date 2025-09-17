@@ -6,6 +6,7 @@ from .scrape_models import (ScrapeRequest,
 
 from .enums import ExtractType
 
+
 __all__ = [
     'ScrapeRequest',
     'ScrapeResponse',

@@ -2,9 +2,12 @@
 
 ## Versioning System
 This project follows Semantic Versioning 2.0.0:
-- MAJOR version (x): Breaking changes, major functionality shifts, and significant refactoring
-- MINOR version (y): New features, important improvements, and substantial enhancements
-- PATCH version (z): Bug fixes, minor improvements, documentation updates, and hot-fixes
+- MAJOR version (x): Breaking changes, major functionality shifts, and
+  significant refactoring
+- MINOR version (y): New features, important improvements, and substantial
+  enhancements
+- PATCH version (z): Bug fixes, minor improvements, documentation updates,
+  and hot-fixes
 
 ### Version Format
 [x.y.z] - yyyy-mm-dd - [ENVIRONMENT/TYPE]
@@ -24,6 +27,26 @@ Where:
 [BETA]: Beta-release
 [RC]: Release-Candidate
 
+## Branching
+1. Crear un issue con el nombre de la versión
+   #1 "vw.y.z"
+2. Crear la rama con el nombre de la versión
+   `git branch vx.y.z`
+3. Commits durante el desarrollo
+4. Squash con rebase antes del merge
+   (commits) ──► "vx.y.z"
+5. Actualizar el changelog
+6. Pull Request de la versión
+7. Merge a main
+8. Tag en Git
+   "vx.y.z"
+9. Push del tag a GitHub
+
+```
+ Issue ──► Branch ──► Commits ──► Squash ──► Changelog ──► PR ──► Merge ──► Tag
+ vx.y.z    vx.y.z                 vx.y.z                  vx.y.z            vx.y.z   
+```
+
 ### Change Types
 - `Added`: New features, endpoints, models, or functionality
 - `Changed`: Modifications to existing functionality
@@ -32,9 +55,26 @@ Where:
 - `Fixed`: Bug fixes and error corrections
 - `Security`: Vulnerability patches and security improvements
 
-## [0.1.0] - 2024-01-01 - [POC]
+# #############################################################################
+
+## [0.1.1] - 2025-09-17 - [POC]
+### Changed
+- `docker.sh` script refactored and optimized:
+ - Replaced repetitive error handling with a unified `run_cmd()` helper.
+ - Consolidated container actions (start, stop, rm) into a single
+   `container_action()` function.
+ - Eliminated individual boolean flags for options, enabling direct execution
+   from command-line arguments.
+ - Added Docker installation check and portable color support for terminals
+   without ANSI codes.
+ - Improved readability and maintainability, while keeping all previous
+   functionalities intact.
+- Refactored `Dockerfile` commands to improve readability.
+
+## [0.1.0] - 2025-09-16 - [POC]
 ### Added
-- Version Management: Added `version.txt` file and version property in Settings class to read version from file
+- Version Management: Added `version.txt` file and version property in Settings
+  class to read version from file
 - New API Endpoints:
     - `/scrape/custom/` - Custom scraping with extraction rules
     - `/scrape/batch/` - Batch processing of multiple scrape requests
@@ -68,7 +108,8 @@ Where:
     - Reusable `_get_page_data()` internal method
     - Better error handling and logging
 - Request Models: Added save_screenshot field to scrape requests
-- Response Format: Extended response data with screenshot paths and extracted data
+- Response Format: Extended response data with screenshot paths and extracted
+  data
 
 ### Fixed
 - Improved error handling throughout the application

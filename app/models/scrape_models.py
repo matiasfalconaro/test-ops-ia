@@ -1,5 +1,9 @@
-from pydantic import BaseModel, HttpUrl
-from typing import Optional, Dict, Any, List
+from pydantic import (BaseModel,
+                      HttpUrl)
+from typing import (Optional,
+                    Dict,
+                    Any,
+                    List)
 from .enums import ExtractType
 
 
